@@ -1,0 +1,115 @@
+{
+  "info": {
+    "name": "Table Reservation API",
+    "_postman_id": "585a976f-711f-4ee4-952f-705556caa015",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Lock Table",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"tableId\": \"table-123\", \"userId\": \"user-abc\", \"duration\": 600}"
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/tables/lock",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["api", "tables", "lock"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Lock Table - Already Locked",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"tableId\": \"table-123\", \"userId\": \"user-def\", \"duration\": 600}"
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/tables/lock",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["api", "tables", "lock"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Unlock Table",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"tableId\": \"table-123\", \"userId\": \"user-abc\"}"
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/tables/unlock",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["api", "tables", "unlock"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Unlock Table - Wrong User",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"tableId\": \"table-123\", \"userId\": \"user-def\"}"
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/tables/unlock",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["api", "tables", "unlock"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Check Table Status",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/api/tables/table-123/status",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["api", "tables", "table-123", "status"]
+        }
+      },
+      "response": []
+    }
+  ]
+}
